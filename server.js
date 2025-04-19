@@ -10,7 +10,8 @@ const PORT = process.env.PORT || 5000;
 
 
 app.use(cors({
-  origin: ['*'], // Update with your network IP
+  origin: '*', // Update with your network IP
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Update with your allowed methods
 }));
 app.use(express.json());
 
