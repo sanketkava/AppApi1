@@ -6,11 +6,15 @@ const { body, validationResult } = require('express-validator');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-// app.use(cors({
-//   origin: ['http://localhost:3000', 'http://192.168.x.x:3000'], // Update with your network IP
-// }));
-// app.use(express.json());
+
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://192.168.x.x:3000'], // Update with your network IP
+}));
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.send('API is up and running!');
+});
 
 // MongoDB Connection
 mongoose.connect('mongodb://localhost:27017/appfinity', {
@@ -73,6 +77,6 @@ app.get('/api/contact', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`API server running at http://localhost:${port}`);
-});
+app.listen(PORT, () => {
+  console.log(`API server running at http://localhost:${PORT}`);
+})
