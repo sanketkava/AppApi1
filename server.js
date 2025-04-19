@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { body, validationResult } = require('express-validator');
 
 const app = express();
-const port = 5000;
+const PORT = process.env.PORT || 5000;
 
 // Middleware
 // app.use(cors({
